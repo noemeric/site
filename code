@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noé Méric - Vidéaste Freelance</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <title>Noé Meric - Vidéaste Freelance</title>
   <style>
     :root {
       --bg-light: #ffffff;
@@ -30,6 +31,46 @@
       color: var(--text-dark);
     }
 
+    .social-btns {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .social-btns a {
+      background-color: #ffffff;
+      padding: 0.5rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      color: #000000;
+      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      box-sizing: border-box;
+      border: 2px solid #000;
+    }
+
+    .social-btns a:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+    
+    .dark-mode .social-btns a {
+      background-color: #000000;
+      color: #ffffff;
+      border: 2px solid #fff;
+    }
+
+    .dark-mode .social-btns a:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
     nav {
       background-color: #f0f0f0;
       padding: 1rem;
@@ -44,6 +85,7 @@
 
     nav a {
       margin: 0 1rem;
+      font-size: 1.2rem;
       text-decoration: none;
       color: inherit;
       font-weight: bold;
@@ -51,6 +93,10 @@
 
     .dark-mode nav {
       background-color: #111;
+    }
+
+    .dark-mode nav a {
+      color: var(--text-dark); /* Texte blanc en mode sombre */
     }
 
     header {
@@ -110,6 +156,7 @@
 
     .about-img {
       flex: 1;
+      position: relative;
     }
 
     .about-text {
@@ -153,12 +200,13 @@
 
     .toggle-btn {
       position: fixed;
-      top: 1rem;
+      top: 0.5rem;
       right: 1rem;
+      font-size: 1.3rem ;
       padding: 0.5rem 1rem;
       background-color: #ddd;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       z-index: 1000;
     }
@@ -184,17 +232,19 @@
     }
   </style>
 </head>
+
 <body>
   <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
 
   <nav>
+    <a href="#" onclick="window.scrollTo(0, 0)">Accueil</a> <!-- Le bouton Accueil -->
     <a href="#portfolio">Portfolio</a>
     <a href="#about">À propos</a>
-    <a href="#contact">Contact</a>
+    <a href="file:///Users/noe/Documents/Pro/Site%20internet/MERIC%20-%20formulaire.html">Contact</a>
   </nav>
 
   <header>
-    <h1>Noé Méric</h1>
+    <h1>Noé Meric</h1>
     <p>Vidéaste freelance – de la pré-prod à la post-prod, je donne vie à vos idées en images.</p>
   </header>
 
@@ -202,19 +252,19 @@
     <h2>Mes Réalisations</h2>
     <div class="video-grid">
       <div>
-        <iframe src="https://www.youtube.com/embed/VID1" title="Court-métrage"></iframe>
+        <iframe src="https://www.youtube.com/embed/rCT70RtQL6U" title="Court-métrage"></iframe>
         <h3>Court-métrage : Voyage intérieur</h3>
         <p>Un clip introspectif de 40 secondes sur la notion de voyage.</p>
       </div>
       <div>
-        <iframe src="https://www.youtube.com/embed/VID2" title="Concert Live"></iframe>
+        <iframe src="https://www.youtube.com/embed/CLnzA44DUBg" title="Concert Live"></iframe>
         <h3>Captation live</h3>
         <p>Concert filmé et monté pour une diffusion professionnelle.</p>
       </div>
       <div>
-        <iframe src="https://www.youtube.com/embed/VID3" title="Vidéo Client"></iframe>
+        <iframe src="https://www.youtube.com/embed/EjVZXqc3Tcc" title="Vidéo Client"></iframe>
         <h3>Vidéo de présentation client</h3>
-        <p>Montage pour un site vitrine d’entreprise.</p>
+        <p>Montage pour un <a href="https://www.consulting-pm.academy/a-propos" target="_blank" rel="noopener noreferrer">site vitrine</a> d’entreprise.</p>
       </div>
     </div>
   </section>
@@ -223,10 +273,14 @@
     <h2>À propos</h2>
     <div class="about-container">
       <div class="about-img">
-        <img src="noe.png" alt="Noé Méric" class="profile-img" />
+        <img src="https://i.pinimg.com/736x/b9/9b/65/b99b653a6967ccbe782372647f10c896.jpg" alt="Noé Méric" class="profile-img" />
+        <div class="social-btns">
+          <a href="https://www.youtube.com/@Oxteon" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/oxteon/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        </div>
       </div>
       <div class="about-text">
-        <p>Je m’appelle Noé Meric. J’ai 18 ans et je suis passionné de vidéo depuis 10 ans. Je m’y suis mis sérieusement il y a 4 ans et j’ai commencé à avoir mes premiers clients fin 2023. Depuis, je ne cesse de m’améliorer avec l’expérience.</p>
+        <p>Je m’appelle Noé Meric. Je suis un étidiant de 18 ans et je suis passionné de vidéo depuis plus de 10 ans. Je m’y suis mis sérieusement il y a 4 ans et j’ai commencé à avoir mes premiers clients fin 2023. Depuis, je ne cesse de m’améliorer avec l’expérience.</p>
         <p>Je réalise tout type de vidéos : corporate, clips, formats réseaux, présentations, etc. J’ai créé mon entreprise récemment pour professionnaliser mon activité.</p>
       </div>
     </div>
@@ -234,21 +288,52 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Une idée de projet ? Une demande particulière ? N'hésitez pas à me contacter par mail :</p>
-    <p><a href="mailto:noemeric.pro@gmail.com">noemeric.pro@gmail.com</a></p>
-    <p><small>Je réponds sous 24h et nous pouvons organiser un appel vidéo pour clarifier votre besoin avant devis.</small></p>
+    <p>Une idée de projet ? Une demande particulière ? Cliquez <a href="file:///Users/noe/Documents/Pro/Site%20internet/MERIC%20-%20formulaire.html" target="_blank" rel="noopener noreferrer"> ici </a>pour prendre contact avec moi.</p>
+    <p>Je réponds sous 24h et nous pouvons organiser un appel vidéo pour clarifier votre besoin avant devis.</p>
   </section>
-
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
   <footer>
-    © <span id="year"></span> Noé Méric — Tous droits réservés.
+    © <span id="year"></span> Noé Meric — Tous droits réservés.
   </footer>
 
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
+      // Enregistrer l'état du mode sombre dans le localStorage
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
     }
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+      // Vérifier si le mode sombre a été activé dans le localStorage
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+      // Mettre à jour l'année
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
