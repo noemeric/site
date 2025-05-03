@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <title>Contact – Noé Meric</title>
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #202020;
+      --bg-dark: #202020;
+      --text-dark: #ffffff;
+      --max-width: 1100px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    nav {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      margin: 0 1rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+    }
+
+    .dark-mode nav {
+      background-color: #111;
+    }
+
+    .dark-mode nav a {
+      color: var(--text-dark);
+    }
+
+    header {
+      padding: 6rem 1rem 3rem;
+      max-width: var(--max-width);
+      margin: auto;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      color: #555;
+    }
+
+    .dark-mode header p {
+      color: #ccc;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 2rem 1rem;
+      max-width: var(--max-width);
+      margin: auto;
+      gap: 2rem;
+    }
+
+    .contact-left, .contact-right {
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+
+    .contact-left form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-left h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-left hr {
+      border: none;
+      height: 4px;
+      width: 200px;
+      background-color: #202020;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .contact-inputs {
+      width: 100%;
+      height: 50px;
+      border: none;
+      outline: none;
+      padding: 0 15px;
+      font-size: 1rem;
+      font-weight: 500;
+      background-color: #ededed;
+      border-radius: 12px;
+    }
+
+    textarea.contact-inputs {
+      height: 140px;
+      padding-top: 12px;
+      resize: none;
+    }
+
+    .contact-inputs:focus {
+      border: 2px solid #202020;
+    }
+
+    .contact-inputs::placeholder {
+      color: #999;
+    }
+
+    .contact-left button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #202020;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Styles pour le bouton en mode sombre */
+    .dark-mode .contact-left button {
+      background-color: #fff;
+      color: #202020;
+    }
+
+    .contact-right img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 1.3rem;
+      padding: 0.5rem 1rem;
+      background-color: #ddd;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .dark-mode .toggle-btn {
+      background-color: #444;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 2rem 1rem;
+    }
+
+    .dark-mode footer {
+      color: #aaa;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 5rem;
+      left: 2rem;
+      padding: 0.5rem;
+      background-color: var(--bg-light);
+      border: 2px solid var(--text-light);
+      border-radius: 12px;
+      color: var(--text-light);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background-color: var(--text-light);
+      color: var(--bg-light);
+    }
+
+    .dark-mode .back-btn {
+      background-color: var(--bg-dark);
+      border-color: var(--text-dark);
+      color: var(--text-dark);
+    }
+
+    .dark-mode .back-btn:hover {
+      background-color: var(--text-dark);
+      color: var(--bg-dark);
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 0.3;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <a href="file:///Users/noe/Documents/Pro/Site%20internet/MERIC%20-%20Page%20web%202.html" class="back-btn">
+    <i class="fas fa-arrow-left"></i>
+  </a>
+
+  <nav>
+    <a href="/">Accueil</a>
+    <a href="/#portfolio">Portfolio</a>
+    <a href="/#about">À propos</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Contact</h1>
+    <p>Une idée ? Un projet vidéo ? Parlons-en !</p>
+    <p>Je répondrai par mail à votre demande sous 24h</p>
+  </header>
+
+  <div class="contact-container">
+    <div class="contact-left">
+      <h2>Travaillons ensemble !</h2>
+      <hr />
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="878ac872-2866-4db4-bec7-d19707c73454" />
+        <input type="text" name="name" placeholder="Votre nom et prénom" class="contact-inputs" required />
+        <input type="email" name="email" placeholder="Votre email" class="contact-inputs" required />
+        <textarea name="message" placeholder="Votre message. Conseillé : une description rapide de votre projet" class="contact-inputs" required></textarea>
+        <button type="submit">Valider</button>
+      </form>
+    </div>
+    <div class="contact-right">
+      <img src="https://i.pinimg.com/736x/69/41/4f/69414f8c9b7679228bdaee93006a7a5e.jpg" alt="Image contact" />
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+  <footer>
+    © <span id="year"></span> Noé Meric — Tous droits réservés.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

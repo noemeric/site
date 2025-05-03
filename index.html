@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <title>Noé Meric - Vidéaste Freelance</title>
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #202020;
+      --bg-dark: #202020;
+      --text-dark: #ffffff;
+      --max-width: 1100px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .social-btns {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .social-btns a {
+      background-color: #ffffff;
+      padding: 0.5rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      color: #000000;
+      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      box-sizing: border-box;
+      border: 2px solid #000;
+    }
+
+    .social-btns a:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+    
+    .dark-mode .social-btns a {
+      background-color: #000000;
+      color: #ffffff;
+      border: 2px solid #fff;
+    }
+
+    .dark-mode .social-btns a:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    nav {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      margin: 0 1rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+    }
+
+    .dark-mode nav {
+      background-color: #111;
+    }
+
+    .dark-mode nav a {
+      color: var(--text-dark); /* Texte blanc en mode sombre */
+    }
+
+    header {
+      padding: 6rem 1rem 3rem;
+      max-width: var(--max-width);
+      margin: auto;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      color: #555;
+    }
+
+    .dark-mode header p {
+      color: #ccc;
+    }
+
+    section, footer {
+      padding: 2rem 1rem;
+      max-width: var(--max-width);
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 1.3rem;
+      font-size: 3.5rem;
+    }
+    h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-img {
+      flex: 1;
+      position: relative;
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    @media(min-width: 768px) {
+      .about-container {
+        flex-direction: row;
+        align-items: stretch;
+      }
+
+      .about-img {
+        max-width: 300px;
+        height: auto;
+      }
+
+      .about-img .profile-img {
+        height: 100%;
+      }
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media(min-width: 768px) {
+      .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      border: none;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 1.3rem ;
+      padding: 0.5rem 1rem;
+      background-color: #ddd;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .dark-mode .toggle-btn {
+      background-color: #444;
+      color: white;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .dark-mode a {
+      color: #66aaff;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+
+  <nav>
+    <a href="#" onclick="window.scrollTo(0, 0)">Accueil</a> <!-- Le bouton Accueil -->
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">À propos</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Noé Meric</h1>
+    <p>Vidéaste freelance – de la pré-prod à la post-prod, je donne vie à vos idées en images.</p>
+  </header>
+
+  <section id="portfolio">
+    <h2>Mes Réalisations</h2>
+    <div class="video-grid">
+      <div>
+        <iframe src="https://www.youtube.com/embed/rCT70RtQL6U" title="Court-métrage"></iframe>
+        <h3>Court-métrage : Voyage intérieur</h3>
+        <p>Un clip introspectif de 40 secondes sur la notion de voyage.</p>
+      </div>
+      <div>
+        <iframe src="https://www.youtube.com/embed/CLnzA44DUBg" title="Concert Live"></iframe>
+        <h3>Captation live</h3>
+        <p>Concert filmé et monté pour une diffusion professionnelle.</p>
+      </div>
+      <div>
+        <iframe src="https://www.youtube.com/embed/EjVZXqc3Tcc" title="Vidéo Client"></iframe>
+        <h3>Vidéo de présentation client</h3>
+        <p>Montage pour un <a href="https://www.consulting-pm.academy/a-propos" target="_blank" rel="noopener noreferrer">site vitrine</a> d’entreprise.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>À propos</h2>
+    <div class="about-container">
+      <div class="about-img">
+        <img src="https://i.pinimg.com/736x/b9/9b/65/b99b653a6967ccbe782372647f10c896.jpg" alt="Noé Méric" class="profile-img" />
+        <div class="social-btns">
+          <a href="https://www.youtube.com/@Oxteon" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/oxteon/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>Je m’appelle Noé Meric. Je suis un étidiant de 18 ans et je suis passionné de vidéo depuis plus de 10 ans. Je m’y suis mis sérieusement il y a 4 ans et j’ai commencé à avoir mes premiers clients fin 2023. Depuis, je ne cesse de m’améliorer avec l’expérience.</p>
+        <p>Je réalise tout type de vidéos : corporate, clips, formats réseaux, présentations, etc. J’ai créé mon entreprise récemment pour professionnaliser mon activité.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Une idée de projet ? Une demande particulière ? Cliquez <a href="/contact/"target="_blank" rel="noopener noreferrer"> ici </a>pour prendre contact avec moi.</p>
+    <p>Je réponds sous 24h et nous pouvons organiser un appel vidéo pour clarifier votre besoin avant devis.</p>
+  </section>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <footer>
+    © <span id="year"></span> Noé Meric — Tous droits réservés.
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      // Enregistrer l'état du mode sombre dans le localStorage
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Vérifier si le mode sombre a été activé dans le localStorage
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+      // Mettre à jour l'année
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
